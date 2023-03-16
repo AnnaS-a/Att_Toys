@@ -1,0 +1,111 @@
+Задание 1
+ 
+1)   Используйте команды операционной системы Linux и создайте две новых директории
+ – «Игрушки для школьников» и «Игрушки для дошколят»
+
+an@an-linux:~$ mkdir Игрушки_для_школьников
+an@an-linux:~$ mkdir Игрушки_для_дошколят
+
+drwxrwxr-x  2 an    an            4096 мар 13 09:11  Игрушки_для_дошколят/
+drwxrwxr-x  2 an    an            4096 мар 13 09:11  Игрушки_для_школьников/
+
+2)   Создайте в директории «Игрушки для школьников» текстовые файлы
+ - «Роботы», «Конструктор», «Настольные игры»
+
+an@an-linux:~$ cd Игрушки_для_школьников
+an@an-linux:~/Игрушки_для_школьников$ touch Роботы
+an@an-linux:~/Игрушки_для_школьников$ touch Конструктор
+an@an-linux:~/Игрушки_для_школьников$ touch Настольные_игры
+
+drwxrwxr-x  2 an an 4096 мар 13 09:24 ./
+drwxr-x--- 28 an an 4096 мар 13 09:17 ../
+-rw-rw-r--  1 an an    0 мар 13 09:24 Конструктор
+-rw-rw-r--  1 an an    0 мар 13 09:24 Настольные_игры
+-rw-rw-r--  1 an an    0 мар 13 09:23 Роботы
+
+3)    Создайте в директории «Игрушки для дошколят» текстовые файлы
+ «Мягкие игрушки», «Куклы», «Машинки»
+
+an@an-linux:~/Игрушки_для_школьников$ cd
+an@an-linux:~$ cd Игрушки_для_дошколят
+an@an-linux:~/Игрушки_для_дошколят$ touch Мягкие_игрушки
+an@an-linux:~/Игрушки_для_дошколят$ touch Куклы
+an@an-linux:~/Игрушки_для_дошколят$ touch Машинки
+
+drwxrwxr-x  2 an an 4096 мар 13 09:28 ./
+drwxr-x--- 28 an an 4096 мар 13 09:17 ../
+-rw-rw-r--  1 an an    0 мар 13 09:27 Куклы
+-rw-rw-r--  1 an an    0 мар 13 09:28 Машинки
+-rw-rw-r--  1 an an    0 мар 13 09:27 Мягкие_игрушки
+
+4)   Объединить 2 директории в одну «Имя Игрушки»
+
+an@an-linux:~$ mkdir Имя_Игрушки
+an@an-linux:~$ mv Игрушки_для_школьников Игрушки_для_дошколят Имя_Игрушки
+
+an@an-linux:~/Имя_Игрушки$ ll
+drwxrwxr-x  4 an an 4096 мар 13 09:39 ./
+drwxr-x--- 27 an an 4096 мар 13 09:39 ../
+drwxrwxr-x  2 an an 4096 мар 13 09:28 Игрушки_для_дошколят/
+drwxrwxr-x  2 an an 4096 мар 13 09:24 Игрушки_для_школьников/
+
+5)   Переименовать директорию «Имя Игрушки» в «Игрушки»
+
+an@an-linux:~/Имя_Игрушки$ cd
+an@an-linux:~$ mv Имя_Игрушки Игрушки
+an@an-linux:~$ ls
+ a1             dir567         root       Видео       Изображения
+ an             dirAn          shared     для         Музыка
+ compose-demo   info.php       snap       Документы   Общедоступные
+ del_script     latest.zip     test       Загрузки   'Рабочий стол'
+ dir1           ownersort.sh   test_del   Игрушки     Шаблоны
+
+6)   Просмотреть содержимое каталога «Игрушки».
+
+an@an-linux:~$ cd Игрушки
+an@an-linux:~/Игрушки$ ll
+
+drwxrwxr-x  4 an an 4096 мар 13 09:39 ./
+drwxr-x--- 27 an an 4096 мар 13 09:45 ../
+drwxrwxr-x  2 an an 4096 мар 13 09:28 Игрушки_для_дошколят/
+drwxrwxr-x  2 an an 4096 мар 13 09:24 Игрушки_для_школьников/
+
+7)   Установить и удалить snap-пакет. (Любой, какой хотите)
+
+Поиск пакета chromium
+an@an-linux:~$ snap find chromium            
+Название                  Версия         Издатель         Примечание  Описание
+chromium                  111.0.5563.64  canonical✓       -           Chromium web browser, open-source version of Chrome
+
+Информация о пакете chromium
+an@an-linux:~$ snap info chromium
+name:      chromium
+summary:   Chromium web browser, open-source version of Chrome
+publisher: Canonical✓
+store-url: https://snapcraft.io/chromium
+
+Установка пакета chromium
+sudo snap install chromium
+
+Удаление пакета chromium
+sudo snap remove chromium
+
+8)   Добавить произвольную задачу для выполнения каждые 3 минуты 
+(Например, запись в текстовый файл чего-то).
+
+an@an-linux:~$ crontab -e
+
+*/3 * * * * echo "Добрый день!" >> /home/an/dirAn/11
+Ctrl+O   Сохранить
+Ctrl+X   Выход
+
+an@an-linux:~$ cd dirAn
+an@an-linux:~/dirAn$ cat 11
+Добрый день!
+
+
+
+
+
+
+
